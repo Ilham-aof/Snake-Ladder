@@ -1,0 +1,12 @@
+body,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}

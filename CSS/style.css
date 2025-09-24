@@ -1,0 +1,186 @@
+@font-face {
+    font-family: "gamefont";
+    src: url("../assets/fonts/gamefont.TTF");
+}
+.container{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: yellowgreen;
+    /* overflow: hidden; */
+}
+
+.board{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    padding: 19px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);    
+    background-image: url("../assets/image/board.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.uiControl{
+    position: absolute;
+    border: solid 5px rgb(255, 208, 0);
+    border-radius: 24px;
+    background-color: rgb(206, 255, 93);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    top: 200px;
+    right: -340px;
+    gap: 15px;
+}
+
+.startPosition{
+    position: absolute;
+    bottom: 16px;
+    left: -75px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 4px rgb(255, 208, 0);
+    background-color: rgb(206, 255, 93);
+    font-family: gamefont;
+    text-align: center;
+    font-size: small;
+    border-radius: 12px;
+
+}
+
+.cell{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.player1{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    transition: transform 0.5s linear;
+    offset-rotate: 0deg;
+}
+
+.addPlayerAnimation{
+    left: 28px;
+    top: 389px;
+}
+
+.player2{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    transition: transform 0.5s linear;
+    offset-rotate: 0deg;
+}
+
+h2{
+    font-size: 2rem;
+    font-family: gamefont;
+}
+
+p{
+    font-size: 2rem;
+    font-family: gamefont;
+}
+
+button{
+    background-color: grey;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: gamefont;
+    &:hover{
+        background-color: rgb(49, 49, 49);
+        color : white
+    }
+
+    &:disabled{
+        background-color: grey;
+        color: rgb(90, 90, 90);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+.notifWrapper{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+}
+
+.notification , .skillNotif {
+    position: fixed;
+    top: 35vh;
+    width: 100vw;
+    height: 30vh;
+    gap: 10px;
+    display: none;
+    opacity: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.playerWin{
+    width: 60px;
+    height: 60px;
+}
+
+.winMsg, .skillMsg{
+    font-weight: bold;
+    font-family: gamefont;
+    color: rgb(255, 196, 0);
+}
+
+@keyframes animate{
+    0%   {transform: scale(0)}
+    30%  {transform: scale(1)}
+    90%  {transform: scale(1)}
+    100% {transform: scale(0)}
+}
+
+@keyframes slide{
+    0%   {transform: translateX(-100vw)}
+    20%  {transform: translateX(0vw)}
+    80%  {transform: translateX(0vw)}
+    100% {transform: translateX(100vw)}
+}
+
+@keyframes jump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes skillAnimation{
+    100% {offset-distance: 100%;}
+}
